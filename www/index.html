@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="./css/onsenui.min.css">
     <link rel="stylesheet" type="text/css" href="./css/onsen-css-components.min.css">
     <link rel="stylesheet" type='text/css' href="./css/font_awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type='text/css' href="./css/base.css">
     <link rel="stylesheet" type='text/css' href="./css/settings.css">
     <title>多言語問診票</title>
   </head>
@@ -62,13 +63,43 @@
       <!-- 設定画面 -->
       <template id="settings.html">
         <ons-page id="settings">
-          <ons-list-item tappable modifier="chevron" onclick="fn.pushPage({'id': 'account.html', 'title': 'アカウント'}, 'default')">アカウント</ons-list-item>
-          <ons-list-item tappable modifier="chevron" onclick="fn.pushPage({'id': 'language.html', 'title': '言語'}, 'default')">言語</ons-list-item>
+          <!-- <ons-list-item tappable modifier="chevron" onclick="fn.pushPage({'id': 'account.html', 'title': 'アカウント'}, 'default')">アカウント</ons-list-item> -->
+          <ons-list>
+            <ons-list-header></ons-list-header>
+            <ons-list-item tappable modifier="chevron" onclick="fn.pushPage({'id': 'personal.html', 'title': '個人情報'}, 'default')">個人情報</ons-list-item>
+            <ons-list-item tappable modifier="chevron" onclick="fn.pushPage({'id': 'language.html', 'title': '言語'}, 'default')">言語</ons-list-item>
+          </ons-list>
         </ons-page>
       </template>
 
-      <!-- 設定画面__アカウント -->
       <template id="account.html">
+        <ons-page>
+          <!-- ツールバー -->
+          <ons-toolbar>
+            <div class="left">
+              <ons-back-button></ons-back-button>
+            </div>
+            <div class="center"></div>
+          </ons-toolbar>
+
+          <div class='settings__body'>
+            <!-- メール -->
+            <!-- ログアウト -->
+          </div>
+
+          <script>
+            ons.getScriptPage().onInit = function () {
+              this.querySelector('ons-toolbar div.center').textContent = this.data.title;
+            }
+          </script>
+
+
+        </ons-page>
+      </template>
+
+
+      <!-- 設定画面__アカウント -->
+      <template id="personal.html">
         <ons-page>
           <!-- ツールバー -->
           <ons-toolbar>
@@ -177,11 +208,12 @@
               </ul>
             </ons-list>
 
-          <section style="padding: 10px">
-            <ons-button modifier="large" onclick="saveUserInfo()" style="margin:15px 0 10px 0;">保存</ons-button>
-          </section>
-
           </div>
+
+          <ons-bottom-toolbar style="padding: 4px">
+            <ons-button modifier="large" onclick="saveUserInfo()">保存</ons-button>
+          </ons-bottom-toolbar>
+
 
           <script>
             ons.getScriptPage().onInit = function () {
@@ -211,9 +243,9 @@
                 <option value="ch">中国語</option>
             </ons-select>
 
-            <section style="padding: 10px">
-              <ons-button modifier="large" onclick="changeLaguage()" style="position:absolute; right:0;bottom:15px">変更</ons-button>
-            </section>
+            <ons-bottom-toolbar style="padding: 4px">
+              <ons-button modifier="large" onclick="changeLaguage()">変更</ons-button>
+            </ons-bottom-toolbar>
 
           </div>
 
@@ -541,9 +573,10 @@
 
           </ons-list>
 
-          <section style="padding: 10px">
-            <ons-button modifier="large" onclick="fn.pushPage({'id': '2_internal_medicine.html'}, 'default')" style="margin:15px 0 15px 0">次へ(1/3)</ons-button>
-          </section>
+          <!-- ボトムツールバー -->
+          <ons-bottom-toolbar style="padding: 4px">
+            <ons-button modifier="large" onclick="fn.pushPage({'id': '2_internal_medicine.html'}, 'default')" >次へ(1/3)</ons-button>
+          </ons-bottom-toolbar>
 
           <!-- ツールバーのタイトル変更 -->
           <script>
@@ -692,9 +725,9 @@
             </ons-list-item>
           </ons-list>
 
-          <section style="padding: 10px">
-            <ons-button modifier="large" onclick="fn.pushPage({'id': 'past_diseases.html'}, 'default')" style="margin:15px 0 15px 0">次へ(2/3)</ons-button>
-          </section>
+          <ons-bottom-toolbar style="padding: 4px">
+            <ons-button modifier="large" onclick="fn.pushPage({'id': 'past_diseases.html'}, 'default')">次へ(2/3)</ons-button>
+          </ons-bottom-toolbar>
 
         </ons-page>
 
@@ -798,9 +831,9 @@
 
           </ons-list>
 
-          <section style="padding: 10px">
-            <ons-button modifier="large" onclick="makeInterviewSheet()" style="margin:15px 0 15px 0">作成(3/3)</ons-button>
-          </section>
+          <ons-bottom-toolbar style="padding: 4px">
+            <ons-button modifier="large" onclick="makeInterviewSheet()">作成(3/3)</ons-button>
+          </ons-bottom-toolbar>
 
         </ons-page>
       </template>
