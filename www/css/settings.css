@@ -1,0 +1,18 @@
+.settings__body input[type="text"],
+.settings__body input[type="tel"],
+.settings__body input[type="date"]
+{
+  margin-left: 15px;
+}
+
+.settings__body ons-select[id="choose-natonality"] {
+  margin-left: 15px;
+}
+
+.list-header--material {
+  background : #eee;
+}
+
+.list .list-item__center input {
+  width: 100%;
+}
