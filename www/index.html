@@ -26,7 +26,7 @@
             <div class="center">問診票</div>
           </ons-toolbar>
 
-          <ons-tabbar position="auto">
+          <ons-tabbar position="auto" swipeable>
             <ons-tab page="interview.sheet.html" icon="ion-clipboard, material:ion-clipboard" active></ons-tab>
             <ons-tab page="settings.html" icon="md-settings" ></ons-tab>
           </ons-tabbar>
@@ -63,11 +63,10 @@
       <!-- 設定画面 -->
       <template id="settings.html">
         <ons-page id="settings">
-          <!-- <ons-list-item tappable modifier="chevron" onclick="fn.pushPage({'id': 'account.html', 'title': 'アカウント'}, 'default')">アカウント</ons-list-item> -->
           <ons-list>
             <ons-list-header></ons-list-header>
+            <ons-list-item tappable modifier="chevron" onclick="fn.pushPage({'id': 'account.html', 'title': 'アカウント'}, 'default')">アカウント</ons-list-item>
             <ons-list-item tappable modifier="chevron" onclick="fn.pushPage({'id': 'personal.html', 'title': '個人情報'}, 'default')">個人情報</ons-list-item>
-            <ons-list-item tappable modifier="chevron" onclick="fn.pushPage({'id': 'language.html', 'title': '言語'}, 'default')">言語</ons-list-item>
           </ons-list>
         </ons-page>
       </template>
@@ -84,6 +83,17 @@
 
           <div class='settings__body'>
             <!-- メール -->
+            <!-- 言語 -->
+            <ons-select id="choose-sel" onchange="selectLang(event)">
+                <option value="en">English</option>
+                <option value="ja">日本語</option>
+                <option value="ch">中国語</option>
+            </ons-select>
+
+            <ons-bottom-toolbar style="padding: 4px">
+              <ons-button modifier="large" onclick="changeLaguage()">変更</ons-button>
+            </ons-bottom-toolbar>
+
             <!-- ログアウト -->
           </div>
 
@@ -220,41 +230,6 @@
               this.querySelector('ons-toolbar div.center').textContent = this.data.title;
             }
           </script>
-        </ons-page>
-      </template>
-
-      <!-- 設定画面__言語 -->
-      <template id="language.html">
-        <ons-page>
-          <!-- ツールバー -->
-          <ons-toolbar>
-            <div class="left">
-              <ons-back-button></ons-back-button>
-            </div>
-            <div class="center">
-            </div>
-          </ons-toolbar>
-
-          <div class='settings__body'>
-
-            <ons-select id="choose-sel" onchange="selectLang(event)">
-                <option value="en">English</option>
-                <option value="ja">日本語</option>
-                <option value="ch">中国語</option>
-            </ons-select>
-
-            <ons-bottom-toolbar style="padding: 4px">
-              <ons-button modifier="large" onclick="changeLaguage()">変更</ons-button>
-            </ons-bottom-toolbar>
-
-          </div>
-
-          <script>
-            ons.getScriptPage().onInit = function () {
-              this.querySelector('ons-toolbar div.center').textContent = this.data.title;
-            }
-          </script>
-
         </ons-page>
       </template>
 
@@ -861,5 +836,6 @@
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript" src="js/common.js"></script>
+    <script type="text/javascript" src="js/model.interviews.js"></script>
   </body>
 </html>
