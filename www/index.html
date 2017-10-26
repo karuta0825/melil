@@ -40,20 +40,25 @@
           <div class='interview_sheet__body'>
 
             <ons-card onclick="fn.pushPage({'id': '20171003.html', 'title': '問診情報'})">
-              <div class="title">2017/10/03</div>
-              <div class="content">Content</div>
+              <div class="department">内科</div>
+              <div class="date">2017/10/03</div>
             </ons-card>
 
             <ons-card onclick="fn.pushPage({'id': '20170903.html', 'title': '問診情報'})">
-              <div class="title">2017/09/03</div>
-              <div class="content">Content</div>
+              <div class="department">耳鼻科</div>
+              <div class="date">2017/09/03</div>
+            </ons-card>
+
+            <ons-card onclick="fn.pushPage({'id': '20170903.html', 'title': '問診情報'})">
+              <div class="department">耳鼻科</div>
+              <div class="date">2017/09/03</div>
             </ons-card>
 
           </div>
 
           <ons-speed-dial position="bottom right" direction="up">
             <ons-fab>
-              <ons-icon icon="md-plus" tappable onclick="fn.pushPage({'id': 'ask_family.html', 'title': '問診票作成'}, 'default')"></ons-icon>
+              <ons-icon icon="md-plus" tappable onclick="fn.pushPage({'id': 'ask_department.html', 'title': '問診票作成'}, 'default')"></ons-icon>
             </ons-fab>
           </ons-speed-dial>
 
@@ -274,22 +279,38 @@
             <div class="left">
               <ons-back-button></ons-back-button>
             </div>
-            <div class="center"></div>
+            <div class="right">
+              <ons-toolbar-button modifier="material">
+                <ons-icon icon="fa-pencil-square-o"></ons-icon>
+              </ons-toolbar-button>
+              <ons-toolbar-button modifier="material">
+               <ons-icon icon="md-more-vert"></ons-icon>
+              </ons-toolbar-button>
+            </div>
           </ons-toolbar>
-          b
+
+          <ons-tabbar id="tabbar" swipeable>
+            <ons-tab page="internal.html" active></ons-tab>
+            <ons-tab page="internal.html"></ons-tab>
+            <ons-tab page="internal.html"></ons-tab>
+          </ons-tabbar>
 
           <!-- ツールバーのタイトル変更 -->
-          <script>
-            ons.getScriptPage().onInit = function () {
-              this.querySelector('ons-toolbar div.center').textContent = this.data.title;
-            }
-          </script>
+          <ons-bottom-toolbar>
+            <div class="center" style='text-align:center; padding-top:6px'>
+              <ons-segment id="segment" tabbar-id="tabbar" style="width: 180px">
+                <button>1</button>
+                <button>2</button>
+                <button>3</button>
+              </ons-segment>
+            </div>
+          </ons-bottom-toolbar>
 
         </ons-page>
       </template>
 
       <!--　問診票作成__受診科がわかるか -->
-      <template id='ask_family.html'>
+      <template id='ask_department.html'>
         <ons-page>
           <!-- ツールバー -->
           <ons-toolbar>
@@ -299,9 +320,15 @@
             <div class="center"></div>
           </ons-toolbar>
 
-          <p>受診する診療科はわかりますか？</p>
-          <ons-button modifier="large" onclick="fn.pushPage({'id': 'select_family.html', 'title': '問診表作成'})">はい</ons-button>
-          <ons-button modifier="large" >いいえ</ons-button>
+          <div class='ask_department__content'>
+
+            <div class='centering'>
+              <p>受診する診療科はわかりますか？</p>
+              <ons-button onclick="fn.pushPage({'id': 'select_family.html', 'title': '問診表作成'})" style='width:48%'>はい</ons-button>
+              <ons-button modifier="quiet" style='width:48%; border:1px solid '>いいえ</ons-button>
+            </div>
+
+          </div>
 
           <!-- ツールバーのタイトル変更 -->
           <script>
@@ -828,6 +855,200 @@
               this.querySelector('ons-toolbar div.center').textContent = this.data.title;
             }
           </script>
+        </ons-page>
+      </template>
+
+      <template id='internal.html'>
+        <ons-page>
+
+          <ons-list>
+            <ons-list-header>当てはまる症状はどれですか？(多数回答可)</ons-list-header>
+
+            <ons-list-item tappable>
+              <label class="left">
+                <ons-checkbox input-id="fever"></ons-checkbox>
+              </label>
+              <label for="fever" class="center">熱がある</label>
+            </ons-list-item>
+
+            <ons-list-item tappable>
+              <label class="left">
+                <ons-checkbox input-id="sore_throat"></ons-checkbox>
+              </label>
+              <label for="sore_throat" class="center">喉が痛い</label>
+            </ons-list-item>
+
+            <ons-list-item tappable>
+              <label class="left">
+                <ons-checkbox input-id="cough"></ons-checkbox>
+              </label>
+              <label for="cough" class="center">咳がある</label>
+            </ons-list-item>
+
+            <ons-list-item tappable>
+              <label class="left">
+                <ons-checkbox input-id="headache"></ons-checkbox>
+              </label>
+              <label for="headache" class="center">頭が痛い</label>
+            </ons-list-item>
+
+            <ons-list-item tappable>
+              <label class="left">
+                <ons-checkbox input-id="chest_pain"></ons-checkbox>
+              </label>
+              <label for="chest_pain" class="center">胸が痛い</label>
+            </ons-list-item>
+
+            <ons-list-item tappable>
+              <label class="left">
+                <ons-checkbox input-id="rash"></ons-checkbox>
+              </label>
+              <label for="rash" class="center">発しん</label>
+            </ons-list-item>
+
+            <ons-list-item tappable>
+              <label class="left">
+                <ons-checkbox input-id="heart_palpaitation"></ons-checkbox>
+              </label>
+              <label for="heart_palpaitation" class="center">動悸</label>
+            </ons-list-item>
+
+            <ons-list-item tappable>
+              <label class="left">
+                <ons-checkbox input-id="shortness_of_breath"></ons-checkbox>
+              </label>
+              <label for="shortness_of_breath" class="center">息切れ</label>
+            </ons-list-item>
+
+            <ons-list-item tappable>
+              <label class="left">
+                <ons-checkbox input-id="swelling"></ons-checkbox>
+              </label>
+              <label for="swelling" class="center">むくみ</label>
+            </ons-list-item>
+
+            <ons-list-item tappable>
+              <label class="left">
+                <ons-checkbox input-id="dizziness"></ons-checkbox>
+              </label>
+              <label for="dizziness" class="center">めまい</label>
+            </ons-list-item>
+
+            <ons-list-item tappable>
+              <label class="left">
+                <ons-checkbox input-id="tightness_chest"></ons-checkbox>
+              </label>
+              <label for="tightness_chest" class="center">胸が苦しい</label>
+            </ons-list-item>
+
+            <ons-list-item tappable>
+              <label class="left">
+                <ons-checkbox input-id="abdominal_pain"></ons-checkbox>
+              </label>
+              <label for="abdominal_pain" class="center">お腹が痛い</label>
+            </ons-list-item>
+
+
+            <ons-list-item tappable>
+              <label class="left">
+                <ons-checkbox input-id="stomachache"></ons-checkbox>
+              </label>
+              <label for="stomachache" class="center">胃が痛い</label>
+            </ons-list-item>
+
+            <ons-list-item tappable>
+              <label class="left">
+                <ons-checkbox input-id="high_blood_pressure"></ons-checkbox>
+              </label>
+              <label for="high_blood_pressure" class="center">高血圧</label>
+            </ons-list-item>
+
+            <ons-list-item tappable>
+              <label class="left">
+                <ons-checkbox input-id="numbness"></ons-checkbox>
+              </label>
+              <label for="numbness" class="center">しびれ</label>
+            </ons-list-item>
+
+            <ons-list-item tappable>
+              <label class="left">
+                <ons-checkbox input-id="excessive_thirst"></ons-checkbox>
+              </label>
+              <label for="excessive_thirst" class="center">口が乾く</label>
+            </ons-list-item>
+
+            <ons-list-item tappable>
+              <label class="left">
+                <ons-checkbox input-id="weight_lost"></ons-checkbox>
+              </label>
+              <label for="weight_lost" class="center">体重が減っている</label>
+            </ons-list-item>
+
+            <ons-list-item tappable>
+              <label class="left">
+                <ons-checkbox input-id="abdomen_feels_swollen"></ons-checkbox>
+              </label>
+              <label for="abdomen_feels_swollen" class="center">お腹が張る</label>
+            </ons-list-item>
+
+            <ons-list-item tappable>
+              <label class="left">
+                <ons-checkbox input-id="loss_appetite"></ons-checkbox>
+              </label>
+              <label for="loss_appetite" class="center">食欲がない</label>
+            </ons-list-item>
+
+            <ons-list-item tappable>
+              <label class="left">
+                <ons-checkbox input-id="vomiting"></ons-checkbox>
+              </label>
+              <label for="vomiting" class="center">嘔吐</label>
+            </ons-list-item>
+
+            <ons-list-item tappable>
+              <label class="left">
+                <ons-checkbox input-id="nausea"></ons-checkbox>
+              </label>
+              <label for="nausea" class="center">吐き気</label>
+            </ons-list-item>
+
+            <ons-list-item tappable>
+              <label class="left">
+                <ons-checkbox input-id="diarrhea"></ons-checkbox>
+              </label>
+              <label for="diarrhea" class="center">下痢</label>
+            </ons-list-item>
+
+            <ons-list-item tappable>
+              <label class="left">
+                <ons-checkbox input-id="bloody_stool"></ons-checkbox>
+              </label>
+              <label for="bloody_stool" class="center">血便</label>
+            </ons-list-item>
+
+            <ons-list-item tappable>
+              <label class="left">
+                <ons-checkbox input-id="weak"></ons-checkbox>
+              </label>
+              <label for="weak" class="center">だるい</label>
+            </ons-list-item>
+
+            <ons-list-item tappable>
+              <label class="left">
+                <ons-checkbox input-id="excessive_fatigue"></ons-checkbox>
+              </label>
+              <label for="excessive_fatigue" class="center">疲れやすい</label>
+            </ons-list-item>
+
+            <ons-list-item tappable>
+              <label class="left">
+                <ons-checkbox input-id="others"></ons-checkbox>
+              </label>
+              <label for="others" class="center">その他</label>
+            </ons-list-item>
+
+          </ons-list>
+
         </ons-page>
       </template>
 
