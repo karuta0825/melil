@@ -1,0 +1,27 @@
+        <ons-page>
+          <!-- ツールバー -->
+          <ons-toolbar>
+            <div class="left">
+              <ons-back-button></ons-back-button>
+            </div>
+            <div class="center"></div>
+          </ons-toolbar>
+
+          <div class='ask_department__content'>
+
+            <div class='centering'>
+              <p>受診する診療科はわかりますか？</p>
+              <ons-button onclick="fn.pushPage({'id': 'select_department.html', 'title': '問診表作成'})" style='width:48%'>はい</ons-button>
+              <ons-button modifier="quiet" style='width:48%; border:1px solid '>いいえ</ons-button>
+            </div>
+
+          </div>
+
+          <!-- ツールバーのタイトル変更 -->
+          <script>
+            ons.getScriptPage().onInit = function () {
+              this.querySelector('ons-toolbar div.center').textContent = this.data.title;
+            }
+          </script>
+
+        </ons-page>

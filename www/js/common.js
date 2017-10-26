@@ -81,3 +81,57 @@ function makeInterviewSheet() {
   }, 2000);
 
 }
+
+document.addEventListener('init', function(event) {
+
+  const langMap = {
+    name                 : '名前',
+    sex                  : '性別',
+    male                 : '男性',
+    female               : '女性',
+    birthday             : '生年月日',
+    tel                  : '電話番号',
+    address              : '住所',
+    has_health_insurance : '健康保険を持ってますか？',
+    yes                  : 'はい',
+    no                   : 'いいえ',
+    nationality          : '国籍',
+    save                 : '保存'
+  };
+
+  setTemplate(langMap, 'html/personal.html', 'personal.html');
+
+  setTemplate(null, 'html/account.html', 'account.html');
+
+  setTemplate(null, 'html/select_department.html', 'select_department.html');
+
+  setTemplate(null, 'html/ask_department.html', 'ask_department.html');
+
+  setTemplate(null, 'html/internal_medicine_p1.html', 'internal_medicine_p1.html');
+
+  setTemplate(null, 'html/internal_medicine_p2.html', 'internal_medicine_p2.html');
+
+  setTemplate(null, 'html/internal_medicine_p3.html', 'internal_medicine_p3.html');
+
+});
+
+
+
+function setTemplate( langMap, page_url, template_id ) {
+  return new Promise( (res, rej) => {
+
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', page_url);
+
+    xhr.onload = () => {
+      const compiled  = _.template(xhr.responseText);
+      const html = compiled(langMap);
+      document.querySelector('template[id="' + template_id + '"]').innerHTML = html;
+      res(html);
+    }
+
+    xhr.send(null);
+
+  });
+}
+

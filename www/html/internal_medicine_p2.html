@@ -1,0 +1,142 @@
+        <ons-page>
+          <!-- ツールバー -->
+          <ons-toolbar>
+            <div class="left"><ons-back-button></ons-back-button></div>
+            <div class="center"></div>
+          </ons-toolbar>
+          <ons-list>
+            <ons-list-header>それはいつからですか？</ons-list-header>
+            <ul class="list">
+              <li class="list-item">
+                <div class="list-item__center">
+                  <input type="date" class="text-input">
+                </div>
+              </li>
+            </ul>
+          </ons-list>
+
+          <ons-list>
+            <ons-list-header>薬や食べ物でアレルギーが出ますか?</ons-list-header>
+            <ons-list-item tappable>
+              <label class="left">
+                <ons-radio name="is_allergy" input-id="yes_is_allergy" ></ons-radio>
+              </label>
+              <label for="yes_is_allergy" class="center">
+                はい
+              </label>
+            </ons-list-item>
+            <ons-list-item tappable>
+              <label class="left">
+                <ons-radio name="is_allergy" input-id="no_is_allergy"></ons-radio>
+              </label>
+              <label for="no_is_allergy" class="center">
+                いいえ
+              </label>
+            </ons-list-item>
+          </ons-list>
+
+          <ons-list>
+            <ons-list-header>現在飲んでいる薬はありますか?</ons-list-header>
+            <ons-list-item tappable>
+              <label class="left">
+                <ons-radio name="is_taking_medicine" input-id="yes_is_taking_medicine" ></ons-radio>
+              </label>
+              <label for="yes_is_taking_medicine" class="center">
+                はい
+              </label>
+            </ons-list-item>
+            <ons-list-item tappable>
+              <label class="left">
+                <ons-radio name="is_taking_medicine" input-id="no_is_taking_medicine"></ons-radio>
+              </label>
+              <label for="no_is_taking_medicine" class="center">
+                いいえ
+              </label>
+            </ons-list-item>
+          </ons-list>
+
+          <ons-list>
+            <ons-list-header>妊娠していますか、またその可能性はありますか?</ons-list-header>
+            <ons-list-item tappable>
+              <label class="left">
+                <ons-radio name="is_pegnant" input-id="yes_is_pegnant"></ons-radio>
+              </label>
+              <label for="yes_is_pegnant" class="center">
+                はい
+              </label>
+            </ons-list-item>
+            <ons-list-item tappable>
+              <label class="left">
+                <ons-radio name="is_pegnant" input-id="no_is_pegnant"></ons-radio>
+              </label>
+              <label for="no_is_pegnant" class="center">
+                いいえ
+              </label>
+            </ons-list-item>
+          </ons-list>
+
+          <ons-list>
+            <ons-list-header>現在治療している病気はありますか?</ons-list-header>
+            <ons-list-item tappable>
+              <label class="left">
+                <ons-radio name="is_under_treatment" input-id="yes_is_under_treatment" ></ons-radio>
+              </label>
+              <label for="yes_is_under_treatment" class="center">
+                はい
+              </label>
+            </ons-list-item>
+            <ons-list-item tappable>
+              <label class="left">
+                <ons-radio name="is_under_treatment" input-id="no_is_under_treatment"></ons-radio>
+              </label>
+              <label for="no_is_under_treatment" class="center">
+                いいえ
+              </label>
+            </ons-list-item>
+          </ons-list>
+
+          <ons-list>
+            <ons-list-header>手術を受けたことがありますか?</ons-list-header>
+            <ons-list-item tappable>
+              <label class="left">
+                <ons-radio name="had_any_opes" input-id="yes_had_any_opes"></ons-radio>
+              </label>
+              <label for="yes_had_any_opes" class="center">
+                はい
+              </label>
+            </ons-list-item>
+            <ons-list-item tappable>
+              <label class="left">
+                <ons-radio name="had_any_opes" input-id="no_had_any_opes"></ons-radio>
+              </label>
+              <label for="no_had_any_opes" class="center">
+                いいえ
+              </label>
+            </ons-list-item>
+          </ons-list>
+
+          <ons-list>
+            <ons-list-header>輸血を受けたことがありますか?</ons-list-header>
+            <ons-list-item tappable>
+              <label class="left">
+                <ons-radio name="had_a_blood_transfusion" input-id="yes_had_a_blood_transfusion"></ons-radio>
+              </label>
+              <label for="yes_had_a_blood_transfusion" class="center">
+                はい
+              </label>
+            </ons-list-item>
+            <ons-list-item tappable>
+              <label class="left">
+                <ons-radio name="had_a_blood_transfusion" input-id="no_had_a_blood_transfusion"></ons-radio>
+              </label>
+              <label for="no_had_a_blood_transfusion" class="center">
+                いいえ
+              </label>
+            </ons-list-item>
+          </ons-list>
+
+          <ons-bottom-toolbar style="padding: 4px">
+            <ons-button modifier="large" onclick="fn.pushPage({'id': 'internal_medicine_p3.html'}, 'default')">次へ(2/3)</ons-button>
+          </ons-bottom-toolbar>
+
+        </ons-page>

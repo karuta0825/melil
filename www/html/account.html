@@ -1,0 +1,33 @@
+        <ons-page>
+          <!-- ツールバー -->
+          <ons-toolbar>
+            <div class="left">
+              <ons-back-button></ons-back-button>
+            </div>
+            <div class="center"></div>
+          </ons-toolbar>
+
+          <div class='settings__body'>
+            <!-- メール -->
+            <!-- 言語 -->
+            <ons-select id="choose-sel" onchange="selectLang(event)">
+                <option value="en">English</option>
+                <option value="ja">日本語</option>
+                <option value="ch">中国語</option>
+            </ons-select>
+
+            <ons-bottom-toolbar style="padding: 4px">
+              <ons-button modifier="large" onclick="changeLaguage()">変更</ons-button>
+            </ons-bottom-toolbar>
+
+            <!-- ログアウト -->
+          </div>
+
+          <script>
+            ons.getScriptPage().onInit = function () {
+              this.querySelector('ons-toolbar div.center').textContent = this.data.title;
+            }
+          </script>
+
+
+        </ons-page>
