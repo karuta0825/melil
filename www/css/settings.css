@@ -16,3 +16,42 @@
 .list .list-item__center input {
   width: 100%;
 }
+
+.ask_department__content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.interview_sheet__body .card--material {
+  box-shadow: none;
+  border : 1px solid #dcdcdc;
+  border-radius: 3px;
+}
+
+.interview_sheet__body .card {
+  margin : 20px 30px;
+}
+
+
+.interview_sheet__body .date,
+.interview_sheet__body .department {
+  display: inline-block;
+}
+
+.interview_sheet__body .department {
+  border-radius: 50px;
+  padding: 8px;
+  color: white;
+  background: #3e9587;
+  width: 50px;
+  text-align: center;
+}
+
+.interview_sheet__body .date {
+  margin-left: 20px;
+  font-size: 18px;
+  vertical-align: middle;
+}
+
