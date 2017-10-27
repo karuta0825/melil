@@ -1,0 +1,28 @@
+        <ons-page id="interview_sheet">
+
+          <div class='interview_sheet__body'>
+
+            <ons-card onclick="fn.pushPage({'id': 'interview_sheet.html', 'title': '問診情報'})">
+              <div class="department">内科</div>
+              <div class="date">2017/10/03</div>
+            </ons-card>
+
+            <ons-card onclick="fn.pushPage({'id': 'interview_sheet.html', 'title': '問診情報'})">
+              <div class="department">耳鼻科</div>
+              <div class="date">2017/09/03</div>
+            </ons-card>
+
+            <ons-card onclick="fn.pushPage({'id': 'interview_sheet.html', 'title': '問診情報'})">
+              <div class="department">耳鼻科</div>
+              <div class="date">2017/09/03</div>
+            </ons-card>
+
+          </div>
+
+          <ons-speed-dial position="bottom right" direction="up">
+            <ons-fab>
+              <ons-icon icon="md-plus" tappable onclick="fn.pushPage({'id': 'ask_department.html', 'title': '問診票作成'}, 'default')"></ons-icon>
+            </ons-fab>
+          </ons-speed-dial>
+
+        </ons-page>

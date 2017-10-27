@@ -73,8 +73,8 @@ function makeInterviewSheet() {
     fn.resetToPage({'id': 'tabber.html', 'title': '問診票'}, 'default')
     .then( () => {
       var elements = ons.createElement("<ons-card>" +
-                 "<div class='title'>2017/10/03</div>" +
-                 "<div class='content'>Content</div>" +
+                 "<div class='department'>内科</div>" +
+                 "<div class='date'>2017/10/03</div>" +
                "</ons-card>");
       document.querySelector('.interview_sheet__body').appendChild(elements);
     });
@@ -83,7 +83,9 @@ function makeInterviewSheet() {
 }
 
 document.addEventListener('init', function(event) {
+});
 
+ons.ready( () => {
   const langMap = {
     name                 : '名前',
     sex                  : '性別',
@@ -103,25 +105,28 @@ document.addEventListener('init', function(event) {
 
   setTemplate(null, 'html/account.html', 'account.html');
 
+  setTemplate(null, 'html/interview_sheet.html', 'interview_sheet.html');
+
   setTemplate(null, 'html/select_department.html', 'select_department.html');
 
   setTemplate(null, 'html/ask_department.html', 'ask_department.html');
 
-  setTemplate(null, 'html/internal_medicine_p1.html', 'internal_medicine_p1.html');
+  setTemplate(null, 'html/internal_medicine_p1.html', 'ask_p1.html');
 
-  setTemplate(null, 'html/internal_medicine_p2.html', 'internal_medicine_p2.html');
+  setTemplate(null, 'html/internal_medicine_p2.html', 'ask_p2.html');
 
-  setTemplate(null, 'html/internal_medicine_p3.html', 'internal_medicine_p3.html');
+  setTemplate(null, 'html/internal_medicine_p3.html', 'ask_p3.html');
 
 });
 
 
-
 function setTemplate( langMap, page_url, template_id ) {
-  return new Promise( (res, rej) => {
 
-    const xhr = new XMLHttpRequest();
-    xhr.open('GET', page_url);
+  const xhr = new XMLHttpRequest();
+  xhr.open('GET', page_url);
+  xhr.send(null);
+
+  return new Promise( (res, rej) => {
 
     xhr.onload = () => {
       const compiled  = _.template(xhr.responseText);
@@ -129,8 +134,6 @@ function setTemplate( langMap, page_url, template_id ) {
       document.querySelector('template[id="' + template_id + '"]').innerHTML = html;
       res(html);
     }
-
-    xhr.send(null);
 
   });
 }

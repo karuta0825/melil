@@ -1,0 +1,20 @@
+        <ons-page>
+          <!-- ツールバー -->
+          <ons-toolbar>
+            <div class="left">
+              <ons-back-button></ons-back-button>
+            </div>
+            <div class="center"></div>
+          </ons-toolbar>
+
+          a
+
+          <!-- ツールバーのタイトル変更 -->
+          <script>
+            ons.getScriptPage().onInit = function () {
+              this.querySelector('ons-toolbar div.center').textContent = this.data.title;
+            }
+          </script>
+
+
+        </ons-page>

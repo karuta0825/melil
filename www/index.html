@@ -27,29 +27,29 @@
           </ons-toolbar>
 
           <ons-tabbar position="auto" swipeable>
-            <ons-tab page="interview.sheet.html" icon="ion-clipboard, material:ion-clipboard" active></ons-tab>
-            <ons-tab page="settings.html" icon="md-settings" ></ons-tab>
+            <ons-tab page="interview_sheets.html" icon="ion-clipboard, material:ion-clipboard" active></ons-tab>
+            <ons-tab page="html/settings.html" icon="md-settings" ></ons-tab>
           </ons-tabbar>
         </ons-page>
       </template>
 
       <!-- 問診票画面 -->
-      <template id="interview.sheet.html">
+      <template id="interview_sheets.html">
         <ons-page id="interview_sheet">
 
           <div class='interview_sheet__body'>
 
-            <ons-card onclick="fn.pushPage({'id': '20171003.html', 'title': '問診情報'})">
+            <ons-card onclick="fn.pushPage({'id': 'interview_sheet.html', 'title': '問診情報'})">
               <div class="department">内科</div>
               <div class="date">2017/10/03</div>
             </ons-card>
 
-            <ons-card onclick="fn.pushPage({'id': '20170903.html', 'title': '問診情報'})">
+            <ons-card onclick="fn.pushPage({'id': 'interview_sheet.html', 'title': '問診情報'})">
               <div class="department">耳鼻科</div>
               <div class="date">2017/09/03</div>
             </ons-card>
 
-            <ons-card onclick="fn.pushPage({'id': '20170903.html', 'title': '問診情報'})">
+            <ons-card onclick="fn.pushPage({'id': 'interview_sheet.html', 'title': '問診情報'})">
               <div class="department">耳鼻科</div>
               <div class="date">2017/09/03</div>
             </ons-card>
@@ -65,68 +65,14 @@
         </ons-page>
       </template>
 
-      <!-- 設定画面 -->
-      <template id="settings.html">
-        <ons-page id="settings">
-          <ons-list>
-            <ons-list-header></ons-list-header>
-            <ons-list-item tappable modifier="chevron" onclick="fn.pushPage({'id': 'account.html', 'title': 'アカウント'}, 'default')">アカウント</ons-list-item>
-            <ons-list-item tappable modifier="chevron" onclick="fn.pushPage({'id': 'personal.html', 'title': '個人情報'}, 'default')">個人情報</ons-list-item>
-          </ons-list>
-        </ons-page>
-      </template>
-
+      <!-- 設定画面__アカウント -->
       <template id="account.html"></template>
 
-
-      <!-- 設定画面__アカウント -->
+      <!-- 設定画面__個人情報 -->
       <template id="personal.html"></template>
 
-      <!--　問診票__20171003時点の -->
-      <template id='20171003.html'>
-        <ons-page>
-          <!-- ツールバー -->
-          <ons-toolbar>
-            <div class="left">
-              <ons-back-button></ons-back-button>
-            </div>
-            <div class="center"></div>
-          </ons-toolbar>
-
-          a
-
-          <!-- ツールバーのタイトル変更 -->
-          <script>
-            ons.getScriptPage().onInit = function () {
-              this.querySelector('ons-toolbar div.center').textContent = this.data.title;
-            }
-          </script>
-
-
-        </ons-page>
-      </template>
-
-      <!--　問診票__20170903時点の -->
-      <template id='20170903.html'>
-        <ons-page>
-          <!-- ツールバー -->
-          <ons-toolbar>
-            <div class="left">
-              <ons-back-button></ons-back-button>
-            </div>
-            <div class="center"></div>
-          </ons-toolbar>
-          b
-
-          <!-- ツールバーのタイトル変更 -->
-          <script>
-            ons.getScriptPage().onInit = function () {
-              this.querySelector('ons-toolbar div.center').textContent = this.data.title;
-            }
-          </script>
-
-        </ons-page>
-      </template>
+      <!--　問診票 -->
+      <template id='interview_sheet.html'></template>
 
       <!--　問診票作成__受診科がわかるか -->
       <template id='ask_department.html'></template>
@@ -134,10 +80,10 @@
       <!--　問診票作成__受診科選択 -->
       <template id='select_department.html'></template>
 
-      <!-- 内科 -->
-      <template id='internal_medicine_p1.html'></template>
-      <template id='internal_medicine_p2.html'></template>
-      <template id='internal_medicine_p3.html'></template>
+      <!-- 質問ページ -->
+      <template id='ask_p1.html'></template>
+      <template id='ask_p2.html'></template>
+      <template id='ask_p3.html'></template>
 
       <!-- モーダル__loading -->
       <ons-modal direction="up">
@@ -147,7 +93,6 @@
           </p>
         </div>
       </ons-modal>
-
 
     </div>
 
